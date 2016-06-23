@@ -57,6 +57,11 @@ namespace SlotMachine
         public void PullLever()
         {
             // TODO
+            Random r = new Random();
+            
+            Console.WriteLine(r.Next(1, 6));
+            Console.WriteLine(r.Next(1, 6));
+            Console.WriteLine(r.Next(1, 6));
         }
 
         /// <summary>
@@ -77,7 +82,7 @@ namespace SlotMachine
         public int GetPayout()
         {
             // TODO
-            return 0;
+            return _currentBet * 500;
         }
 
 
