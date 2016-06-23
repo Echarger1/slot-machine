@@ -89,9 +89,9 @@ namespace SlotMachine
         {
             // TODO
             int firstSlot = icons[0];
-            bool WinOut = Array.TrueForAll(icons, y => y == firstSlot);
+            bool Win = Array.TrueForAll(icons, y => y == firstSlot);
 
-            if (WinOut)
+            if (Win)
             {
                 return CurrentBet * 500;
             }
