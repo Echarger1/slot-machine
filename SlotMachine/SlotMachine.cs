@@ -11,10 +11,10 @@ namespace SlotMachine
         Random random;
         public int NumberOfSlots { get; set; }
 
-        public int IconsPerSlot { get; set; }
+        public int Icons { get; set; }
         public int MinimumBet { get; set; }
         public int MaximumBet { get; set; }
-        private int GameCounter = 0, WinCounter = 0;
+        private int Game = 0, Win = 0;
 
         private int _currentBet;
         public int CurrentBet
@@ -47,7 +47,7 @@ namespace SlotMachine
         public SlotMachine()
         {
             NumberOfSlots = 3;
-            IconsPerSlot = 5;
+            Icons = 5;
             MinimumBet = 1;
             MaximumBet = 100;
         }
@@ -61,10 +61,10 @@ namespace SlotMachine
             random = new Random();
             for (int i = 0; i < icons.Length; i++)
             {
-                icons[i] = random.Next(1, IconsPerSlot + 1);
+                icons[i] = random.Next(1, Icons + 1);
             }
 
-            GameCounter++;
+            Game++;
             // TODO
         }
 
