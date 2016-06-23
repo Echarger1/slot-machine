@@ -93,7 +93,7 @@ namespace SlotMachine
 
             if (WinOut)
             {
-                return CurrentBet * 2;
+                return CurrentBet * 500;
             }
             return 0;
         }
