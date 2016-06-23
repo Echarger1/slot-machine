@@ -71,7 +71,8 @@ namespace SlotMachine
         public int[] GetResults()
         {
             // TODO
-            return null;
+            PullLever();
+            return icons;
         }
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace SlotMachine
         public int GetPayout()
         {
             // TODO
+            PullLever();
             return _currentBet * 500;
         }
 
