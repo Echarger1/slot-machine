@@ -8,7 +8,8 @@ namespace SlotMachine
 {
     class SlotMachine
     {
-        Random random;
+        Random random = new Random();
+        
         private int _numberofslots;
         public int NumberOfSlots {
             get
@@ -25,8 +26,6 @@ namespace SlotMachine
         public int Icons { get; set; }
         public int MinimumBet { get; set; }
         public int MaximumBet { get; set; }
-        private int Game = 0, Win = 0;
-
         private int _currentBet;
         public int CurrentBet
         {
@@ -57,7 +56,7 @@ namespace SlotMachine
 
         public SlotMachine()
         {
-            NumberOfSlots = 3;
+            NumberOfSlots =3;
             Icons = 5;
             MinimumBet = 1;
             MaximumBet = 100;
@@ -70,14 +69,11 @@ namespace SlotMachine
         public void PullLever()
         {
             
-            random = new Random();
             for (int i = 0; i < icons.Length; i++)
             {
                 icons[i] = random.Next(1, Icons + 1);
             }
-
-            Game++;
-            // TODO
+            
         }
 
         /// <summary>
@@ -86,9 +82,6 @@ namespace SlotMachine
         /// <returns>an int[] with each slot as an element of the array</returns>
         public int[] GetResults()
         {
-            // TODO
-            PullLever();
-
             return icons;
         }
 
@@ -99,19 +92,27 @@ namespace SlotMachine
         /// <returns>number of pennies to pay out</returns>
         public int GetPayout()
         {
-            // TODO
-            int firstSlot = icons[0];
-            bool Win = Array.TrueForAll(icons, y => y == firstSlot);
-
-            if (Win)
+            int slot1 = icons[0];
+            int payout = 0;
+            int count = 0;
+            for (int i = 1; i < icons.Length; i++)
             {
-                return CurrentBet * 500;
+                if (icons[i] == slot1)
+                {
+                    count++;
+                }
+
             }
-            return 0;
+            if (count == icons.Length - 1)
+            {
+                payout = slot1 * CurrentBet * 99999999;
+            }
+           //if (Array.TrueForAll(icons, i => i == slot1))
+           // {
+           //     payout = slot1 * CurrentBet * 999999999;
+           // }
+
+            return payout;
         }
-
-
-
-
     }
 }
