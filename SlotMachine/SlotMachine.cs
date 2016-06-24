@@ -9,7 +9,18 @@ namespace SlotMachine
     class SlotMachine
     {
         Random random;
-        public int NumberOfSlots { get; set; }
+        private int _numberofslots;
+        public int NumberOfSlots {
+            get
+            {
+                return _numberofslots;
+            }
+            set
+            {
+                _numberofslots = value;
+                icons = new int[_numberofslots];
+            }
+                }
 
         public int Icons { get; set; }
         public int MinimumBet { get; set; }
@@ -50,6 +61,7 @@ namespace SlotMachine
             Icons = 5;
             MinimumBet = 1;
             MaximumBet = 100;
+            
         }
 
         /// <summary>
@@ -57,7 +69,7 @@ namespace SlotMachine
         /// </summary>
         public void PullLever()
         {
-            icons = new int[NumberOfSlots];
+            
             random = new Random();
             for (int i = 0; i < icons.Length; i++)
             {
